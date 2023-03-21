@@ -13,4 +13,7 @@ elif volume <= 120:
 elif volume <= 160:
     fee = 13000
 
-print("해당 택배의 배송요금은", fee, "입니다")
+if volume <= 160:
+    print("해당 택배의 배송요금은", fee, "입니다")
+else:
+    print("해당 택배의 길이는 배송불가입니다.")
