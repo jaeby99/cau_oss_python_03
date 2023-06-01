@@ -10,12 +10,15 @@ class line:
     """
     class에 대한 설명은 class의 선언부 바로 아래에 작성한다.
     """
-    def __init__(self, length=0):
+    __width = 0
+    __height = 0
+    def __init__(self, width, height):
         """
         함수(메소드)의 설명은 함수의 선언(def) 바로 아래에 작성한다.
         """
-        self.__length = length
-    def set_length(self, length):
+        self.__width = width
+        self.__height = height
+    def set_length(self, width, height):
         """0으로 초기화된 __length를 인수 length로 바꿔준다
         Args:
             length: 새로운 값
@@ -24,7 +27,8 @@ class line:
         Examples:
             >>> set_length(10) # __length를 10으로 바꾼다
         """
-        self.__length = length
+        self.__width = width
+        self.__height = height
     def get_length(self):
         """저장하고 있는 __length를 return한다
         Returns:
@@ -32,37 +36,43 @@ class line:
         Examples:
             >>> new_length = get_length() # new_length 변수를 self.__length값으로 바꾼다
         """
-        return self.__length
+        return self.__width, self.__height
     
-def area_square(length):
-    """한변의 길이가 length인 정사각형의 넓이를 구한다
+def area_rectangle(width, height):
+    """너비와 높이의 길이가 widht, height인 직사각형의 넓이를 구한다
         Args:
-            length: 정사각형 한변의 길이
+            width: 직사각형 너비의 길이
+            height: 직사각형 높이의 길이
         Returns:
-            length**2 # 정사각형의 넓이
+            length*width # 직사각형의 넓이
         Examples:
-            >>> square = area_square(5) # square변수를 한변의 길이가 5인 정사각형의 넓이로 바꾼다
+            >>> square = area_square(5, 4) # square변수를 너비가 5이고, 높이가 4인 직사각형의 넓이로 바꾼다
     """
-    return length**2
+    if width <= 0 or height <= 0: raise ValueError
+    return width*height
 
-def area_circle(length):
-    """반지름의 길이가 length인 원의 넓이를 구한다
+def area_ellipse(width, height):
+    """너비와 높이의 길이가 width, height인 타원의 넓이를 구한다
         Args:
-            length: 반지름 길이
+            width: 타원의 너비
+            height: 타원의 높이
         Returns:
-            length**2 * math.pi # 원의 넓이
+            width*height*math.pi # 타원의 넓이
         Examples:
-            >>> circle = area_circle(3) # circle변수를 반지름의 길이가 3인 원의 넓이로 바꾼다
+            >>> circle = area_ellipse(3,2) # circle변수를 너비가 3이고 높이가 2인 타원의 넓이로 바꾼다
     """
-    return length**2 * math.pi
+    if width <= 0 or height <= 0: raise ValueError
+    return width*height*math.pi
 
-def area_regular_triangle(length):
-    """한변의 길이가 length인 정삼각형의 넓이를 구한다
+def area_right_triangle(width, height):
+    """너비와 높이가 width, height인 직각삼각형의 넓이를 구한다
         Args:
-            length: 정삼각형 한변의 길이
+            width: 직각삼각형 너비의 길이
+            height: 직각삼각형 높이의 길이
         Returns:
-            (math.sqrt(3)/4) * (length**2)  # 정삼각형의 넓이
+            width*height/2  # 직각삼각형의 넓이
         Examples:
-            >>> triangle = area_regular_triangle(4) # triangle변수를 한변의 길이가 4인 삼각형의 넓이로 바꾼다
+            >>> triangle = area_regular_triangle(4,3) # triangle변수를 너비가 4, 높이가 3인 직각삼각형의 넓이로 바꾼다
     """
-    return (math.sqrt(3)/4) * (length**2)  
+    if width <= 0 or height <= 0: raise ValueError
+    return width*height/2
