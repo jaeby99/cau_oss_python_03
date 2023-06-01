@@ -19,22 +19,22 @@ class line:
         self.__width = width
         self.__height = height
     def set_length(self, width, height):
-        """0으로 초기화된 __length를 인수 length로 바꿔준다
+        """0으로 초기화된 __width를 인수 width, __height를 인수 height로 바꿔준다
         Args:
             length: 새로운 값
         Returns:
             아무 값도 리턴하지 않음 (혹은 공란으로 비워둠)
         Examples:
-            >>> set_length(10) # __length를 10으로 바꾼다
+            >>> set_length(10,20) # __width를 10, __height를 20으로 바꾼다
         """
         self.__width = width
         self.__height = height
     def get_length(self):
-        """저장하고 있는 __length를 return한다
+        """저장하고 있는 __width와 __height를 return한다
         Returns:
             self.__length
         Examples:
-            >>> new_length = get_length() # new_length 변수를 self.__length값으로 바꾼다
+            >>> new_width, new_height = get_length() # new_width 변수를 self.__width, new_height 변수를 self.__height값으로 바꾼다
         """
         return self.__width, self.__height
     
